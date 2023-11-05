@@ -19,7 +19,8 @@ export const Photo = forwardRef(({ url, index, faded, style, ...props }, ref) =>
 
     return (
         <div ref={ref} style={inlineStyles} {...props}>
-            <div className='photo'></div>
+            <div className='photo'>
+            </div>
         </div>
     );
 });
