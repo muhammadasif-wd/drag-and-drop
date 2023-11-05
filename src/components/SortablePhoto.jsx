@@ -1,4 +1,4 @@
-import React from 'react';
+/* eslint-disable react/prop-types */
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 
@@ -6,6 +6,7 @@ import { Photo } from './Photo';
 
 export const SortablePhoto = (props) => {
     const sortable = useSortable({ id: props.url });
+    // console.log('props :>> ', props);
     const {
         attributes,
         listeners,
@@ -22,17 +23,17 @@ export const SortablePhoto = (props) => {
         borderRadius: "8px",
         boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
         cursor: "grab",
-        cursor: "-moz-grab",
-        cursor: "-webkit-grab",
     };
 
     return (
         <Photo
             ref={setNodeRef}
-            style={style}
+            style={isDragging ? style : style}
+            {...sortable}
             {...props}
             {...attributes}
             {...listeners}
+            {...isDragging}
         />
     );
 };

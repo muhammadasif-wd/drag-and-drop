@@ -1,6 +1,9 @@
-import React, { forwardRef } from 'react';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/display-name */
+import { forwardRef } from 'react';
 
 export const Photo = forwardRef(({ url, index, faded, style, ...props }, ref) => {
+
     const inlineStyles = {
         opacity: faded ? '0.2' : '1',
         transformOrigin: '0 0',
@@ -14,5 +17,9 @@ export const Photo = forwardRef(({ url, index, faded, style, ...props }, ref) =>
         ...style,
     };
 
-    return <div className='photo_select' ref={ref} style={inlineStyles} {...props} />;
+    return (
+        <div ref={ref} style={inlineStyles} {...props}>
+            <div className='photo'></div>
+        </div>
+    );
 });
